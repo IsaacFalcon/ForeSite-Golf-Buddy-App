@@ -45,16 +45,6 @@ router.get("/profile", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    // const golfer = userData.attributes.reduce((prev, current) => {
-    //   if (prev[current.category]) {
-    //     prev[current.category].push(current.get({ plain: true }));
-    //   } else {
-    //     prev[current.category] = [current.get({ plain: true })];
-    //   }
-    //   return prev;
-    // }, {});
-    // console.log(attributes);
-
     res.render("profile", {
       ...user
       // attributes,

@@ -2,10 +2,8 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const User = require('../../models');
 
-// Added comments describing the functionality of this `login` route
 router.post('/login', async (req, res) => {
   try {
-    // we search the DB for a user with the provided email
     const userData = await User.findOne({ where: { email: req.body.email } });
     if (!userData) {
       // the error message shouldn't specify if the login failed because of wrong email or password

@@ -10,12 +10,12 @@ const signupFormHandler = async (event) => {
   const handicap = document.querySelector("#grid-handicap").value.trim();
   const gender = document.querySelector("#grid-gender").value.trim();
   const user_name = document.querySelector("#grid-username").value.trim();
-console.log(first_name);
+console.log(compStyle);
   if (user_name) {
     const response = await fetch("/api/users/signup", {
       method: "POST",
       body: JSON.stringify({
-        // gender,
+        gender,
         user_name,
         first_name,
         last_name,
@@ -23,7 +23,7 @@ console.log(first_name);
         password,
         // compStyle,
         // laxStyle,
-        // handicap,
+        handicap,
       }),
       headers: { "Content-Type": "application/json" },
     });
